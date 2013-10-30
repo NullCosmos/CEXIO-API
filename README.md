@@ -4,22 +4,25 @@ CEXIO-API
 A simple .NET interface to CEX.IO API.
 
 If this helps, please consider donating:
+
 19qCZUt4WqLCZ3MQ8tZXcd5gx71EdGjPX2
 
-Usage:
-
+Using
+------
 ```csharp
 using CEXIO_API;
 ```
 
-Initialization:
+Initialization
+------
 ```csharp
 CEXIO.Key = "[API Key]";
 CEXIO.Secret = "[API Secret]";
 CEXIO.UserName = "[username]";
 ```
 
-Call API:
+Usage
+------
 ```csharp
 //Get balance of all commodities
 Balance b = Balance.GetBalance();
