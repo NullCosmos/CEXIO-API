@@ -21,14 +21,15 @@ CEXIO.UserName = "[username]";
 
 Call API:
 ```csharp
-//Get balance
+//Get balance of all commodities
 Balance b = Balance.GetBalance();
 
-//Get latest data
-Ticker t = Ticker.GetTicker(CEXIO.Commodity.GHS_BTC);
-
+//Do we have BTC to sell?
 if(b.BTC.available>0)
 {
+  //Get latest data
+  Ticker t = Ticker.GetTicker(CEXIO.Commodity.GHS_BTC);
+
   //Calculate amount to sell
   Double amount = Floor(b.BTC.available / t.last, 8);
   
