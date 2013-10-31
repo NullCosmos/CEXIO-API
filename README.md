@@ -3,7 +3,7 @@ CEXIO-API
 
 A simple .NET interface to CEX.IO API.
 
-If this helps, please consider donating:
+If you find this useful, please consider donating:
 
 19qCZUt4WqLCZ3MQ8tZXcd5gx71EdGjPX2
 
