@@ -15,9 +15,7 @@ namespace CEXIO_API
         public static String Secret;
         public static String UserName;
         public static Int32 MaxRequestsPerTenMin = 550;
-        public static Int32 CurrentRequestCount = 0;
-        public static DateTime TimeOfLastReset;
-        public enum Commodity { GHS_BTC, BF1_BTC }
+        public enum Commodity { GHS_BTC, BF1_BTC, NMC_BTC, GHS_NMC  }
 
         public static NameValueCollection AuthHeader
         {
@@ -52,12 +50,14 @@ namespace CEXIO_API
 
         public static Boolean CanRequest()
         {
-            if (TimeOfLastReset.AddMinutes(10) < DateTime.Now)
+            if (Properties.Settings.Default.TimeOfLastReset.AddMinutes(10) < DateTime.Now)
             {
-                CurrentRequestCount = 0;
-                TimeOfLastReset = DateTime.Now;
+                Properties.Settings.Default.CurrentRequestCount = 0;
+                Properties.Settings.Default.TimeOfLastReset = DateTime.Now;
             }
-            return CurrentRequestCount++ < MaxRequestsPerTenMin;
+            Boolean rtn = Properties.Settings.Default.CurrentRequestCount++ < MaxRequestsPerTenMin;
+            Properties.Settings.Default.Save();
+            return rtn;
         }
     }
 }

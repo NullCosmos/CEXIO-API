@@ -20,7 +20,10 @@ namespace CEXIO_API
         public BalanceItem BTC;
         public BalanceItem GHS;
         public BalanceItem BF1;
-        
+        public BalanceItem NMC;
+        public BalanceItem ICX;
+        public BalanceItem DVC;
+
         public class BalanceItem
         {
             /// <summary>
