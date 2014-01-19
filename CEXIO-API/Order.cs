@@ -1,10 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.Specialized;
+using System.Globalization;
+using System.Net;
 using Newtonsoft.Json;
 
 namespace CEXIO_API
@@ -84,8 +82,8 @@ namespace CEXIO_API
 
             NameValueCollection postData = CEXIO.AuthHeader;
             postData.Add("type", Enum.GetName(typeof(Type),type).ToLower());
-            postData.Add("amount", amount.ToString());
-            postData.Add("price", price.ToString());
+            postData.Add("amount", amount.ToString("F8", CultureInfo.InvariantCulture));
+            postData.Add("price", price.ToString("F8", CultureInfo.InvariantCulture));
 
             String[] cS = Enum.GetName(typeof(CEXIO.Commodity), commodity).Split('_');
 
